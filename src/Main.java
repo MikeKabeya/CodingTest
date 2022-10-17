@@ -9,7 +9,6 @@ public class Main {
         String result, filename;
         int team;
         String[] teams;
-        int[] points;
         List<String> es = new ArrayList<>();
         List<String> teamslist = new ArrayList<>();
         List<String> totalGames = new ArrayList<>();
@@ -25,7 +24,7 @@ public class Main {
                 BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
                 System.out.print("Input number of Games:\t");
                 int games = Integer.parseInt(input.readLine());
-                team = games * 2;
+
                 for (int i = 0; i < games; i++) {
                     System.out.println("please enter values please");
                     result = input.readLine();
@@ -34,9 +33,10 @@ public class Main {
                 }
 
                 System.out.println("-------------------------------------------------");
+                team = es.size();
 
                 int[][] scoreBoard = new int[team][5];
-                for (int i = 0; i < games - 1; i += 2) {
+                for (int i = 0; i < team - 1; i += 2) {
                     int j = i + 1;
 
                     int a = es.get(i).length();
@@ -65,7 +65,7 @@ public class Main {
                         teamslist.add(teamnamea + " " + String.valueOf(scoreBoard[i][4] += 0));
                     }
                 }
-                for (int i = 0; i < team - 1; i++) {
+                for (int i = 0; i < team; i++) {
                     int a = teamslist.get(i).length();
                     String teamName = teamslist.get(i).substring(0, a - 2);
                     int amount = Integer.parseInt(teamslist.get(i).substring(a - 1));
@@ -122,7 +122,6 @@ public class Main {
             if (!es.isEmpty()) {
                 team = es.size();
                 teams = new String[team];
-                points = new int[team];
                 int[][] scoreBoard = new int[team][5];
                 for (int i = 0; i < team - 1; i += 2) {
                     int j = i + 1;
