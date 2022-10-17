@@ -91,7 +91,7 @@ public class Main {
                     if(prev == value) {
                         i--;
                     }
-                    System.out.println(String.valueOf(i) + " " + key + "  " + value + "pts");
+                    System.out.println(i + " " + key + "  " + value + "pts");
                     i++;
                     prev = value;
                 }
@@ -105,10 +105,9 @@ public class Main {
             System.out.println("Please enter the pathway to read the file from");
             filename = sc.nextLine();
 
-            try (BufferedReader br = new BufferedReader(new FileReader("Test.txt"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
                 String line;
                 while ((line = br.readLine()) != null) {
-                    System.out.println(line);
 
                     String[] totals = line.split("/n");
                     Collections.addAll(totalGames, totals);
@@ -182,7 +181,7 @@ public class Main {
                     if(prev == value) {
                         i--;
                     }
-                    System.out.println(String.valueOf(i) + " " + key + "  " + value + "pts");
+                    System.out.println(i + " " + key + "  " + value + "pts");
                     i++;
                     prev = value;
                 }
