@@ -76,14 +76,14 @@ public class Main {
                 scoreBoard[i][0]++;
                 scoreBoard[j][0]++;
                 if (teamAScore > teamBScore) {
-                    teamsList.add(teamNamea + " " + String.valueOf(scoreBoard[i][4] += 3));
-                    teamsList.add(teamNameb + " " + String.valueOf(scoreBoard[j][4] += 0));
+                    teamsList.add(teamNamea + " " + (scoreBoard[i][4] += 3));
+                    teamsList.add(teamNameb + " " + (scoreBoard[j][4] += 0));
                 } else if (teamAScore == teamBScore) {
-                    teamsList.add(teamNamea + " " + String.valueOf(scoreBoard[i][4] += 1));
-                    teamsList.add(teamNameb + " " + String.valueOf(scoreBoard[j][4] += 1));
+                    teamsList.add(teamNamea + " " + (scoreBoard[i][4] += 1));
+                    teamsList.add(teamNameb + " " + (scoreBoard[j][4] += 1));
                 } else {
-                    teamsList.add(teamNameb + " " + String.valueOf(scoreBoard[j][4] += 3));
-                    teamsList.add(teamNamea + " " + String.valueOf(scoreBoard[i][4] += 0));
+                    teamsList.add(teamNameb + " " + (scoreBoard[j][4] += 3));
+                    teamsList.add(teamNamea + " " + (scoreBoard[i][4] += 0));
                 }
             }
         }
