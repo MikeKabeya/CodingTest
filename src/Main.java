@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
+    public static int count = 1;
+    public static int position = -10;
     public static void main(String[] args) {
         String result, filename;
         List<String> teamsAndGameScore = new ArrayList<>();
@@ -98,7 +100,7 @@ public class Main {
                 scoresMap.put(teamName, amount);
             }
         }
-        int i = 1;
+        int i = count;
         LinkedHashMap<String, Integer> sortedscoresMap = new LinkedHashMap<>();
 
         scoresMap.entrySet()
@@ -107,7 +109,7 @@ public class Main {
                 .forEachOrdered(x -> sortedscoresMap.put(x.getKey(), x.getValue()));
 
         System.out.println("TEAMS POINTS");
-        int prev = -10;
+        int prev = position;
         for (Map.Entry<String, Integer> entry : sortedscoresMap.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
