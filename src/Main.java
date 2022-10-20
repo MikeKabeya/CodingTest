@@ -7,9 +7,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         String result, filename;
-        List<String> es = new ArrayList<>();
+        List<String> teamsAndGameScore = new ArrayList<>();
         List<String> teamslist = new ArrayList<>();
-        List<String> totalGames = new ArrayList<>();
         LinkedHashMap<String, Integer> scoresMap = new LinkedHashMap<>();
         Scanner sc = new Scanner(System.in);
 
@@ -29,12 +28,12 @@ public class Main {
                     System.out.println("please enter values please");
                     result = input.readLine();
                     String[] arrOfStr = result.split(",");
-                    Collections.addAll(es, arrOfStr);
+                    Collections.addAll(teamsAndGameScore, arrOfStr);
                 }
-                calculations(es,teamslist);
-                outPut(es,scoresMap,teamslist);
+                calculations(teamsAndGameScore,teamslist);
+                outPut(teamsAndGameScore,scoresMap,teamslist);
             } catch (IOException e) {
-                System.out.println("Error");
+                System.out.println(e.getMessage());
             }
 
         }
@@ -46,35 +45,31 @@ public class Main {
             try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
                 String line;
                 while ((line = br.readLine()) != null) {
-
-                    String[] totals = line.split("/n");
-                    Collections.addAll(totalGames, totals);
-
                     String[] arrOfStr = line.split(",");
-                    Collections.addAll(es, arrOfStr);
+                    Collections.addAll(teamsAndGameScore, arrOfStr);
                 }
-                calculations(es,teamslist);
-                outPut(es,scoresMap,teamslist);
+                calculations(teamsAndGameScore,teamslist);
+                outPut(teamsAndGameScore,scoresMap,teamslist);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             }
         }
     }
 
-    public static void calculations(List<String> es,List<String> teamsList) {
+    public static void calculations(List<String> teamsAndGameScore,List<String> teamsList) {
         System.out.println("-------------------------------------------------");
-        int num = es.size();
-        if (!es.isEmpty()) {
+        int num = teamsAndGameScore.size();
+        if (!teamsAndGameScore.isEmpty()) {
             int[][] scoreBoard = new int[num][5];
             for (int i = 0; i < num - 1; i += 2) {
                 int j = i + 1;
 
-                int a = es.get(i).length();
-                String teamNamea = es.get(i).substring(0, a - 2);
-                int teamAScore = Integer.parseInt(es.get(i).substring(a - 1));
-                int b = es.get(j).length();
-                String teamNameb = es.get(j).substring(0, b - 2);
-                int teamBScore = Integer.parseInt(es.get(j).substring(b - 1));
+                int a = teamsAndGameScore.get(i).length();
+                String teamNamea = teamsAndGameScore.get(i).substring(0, a - 2);
+                int teamAScore = Integer.parseInt(teamsAndGameScore.get(i).substring(a - 1));
+                int b = teamsAndGameScore.get(j).length();
+                String teamNameb = teamsAndGameScore.get(j).substring(0, b - 2);
+                int teamBScore = Integer.parseInt(teamsAndGameScore.get(j).substring(b - 1));
 
                 scoreBoard[i][0]++;
                 scoreBoard[j][0]++;
@@ -92,8 +87,8 @@ public class Main {
         }
     }
 
-    public static void outPut(List<String> es,LinkedHashMap<String, Integer> scoresMap,List<String> teamsList) {
-        for (int i = 0; i < es.size(); i++) {
+    public static void outPut(List<String> teamsAndGameScore,LinkedHashMap<String, Integer> scoresMap,List<String> teamsList) {
+        for (int i = 0; i < teamsAndGameScore.size(); i++) {
             int a = teamsList.get(i).length();
             String teamName = teamsList.get(i).substring(0, a - 2);
             int amount = Integer.parseInt(teamsList.get(i).substring(a - 1));
