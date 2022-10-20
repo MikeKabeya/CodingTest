@@ -101,16 +101,16 @@ public class Main {
             }
         }
         int i = count;
-        LinkedHashMap<String, Integer> sortedscoresMap = new LinkedHashMap<>();
+        LinkedHashMap<String, Integer> sortedScoresMap = new LinkedHashMap<>();
 
         scoresMap.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .forEachOrdered(x -> sortedscoresMap.put(x.getKey(), x.getValue()));
+                .forEachOrdered(x -> sortedScoresMap.put(x.getKey(), x.getValue()));
 
         System.out.println("TEAMS POINTS");
         int prev = position;
-        for (Map.Entry<String, Integer> entry : sortedscoresMap.entrySet()) {
+        for (Map.Entry<String, Integer> entry : sortedScoresMap.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
             if (prev == value) {
