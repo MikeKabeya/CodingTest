@@ -7,10 +7,10 @@ import java.util.*;
 public class Main {
     public static int count = 1;
     public static int position = -10;
+    private static  List<String> teamsList = new ArrayList<>();
     public static void main(String[] args) {
         String result, filename;
         List<String> teamsAndGameScore = new ArrayList<>();
-        List<String> teamsList = new ArrayList<>();
         LinkedHashMap<String, Integer> scoresMap = new LinkedHashMap<>();
         Scanner sc = new Scanner(System.in);
 
@@ -32,8 +32,8 @@ public class Main {
                     String[] arrOfStr = result.split(",");
                     Collections.addAll(teamsAndGameScore, arrOfStr);
                 }
-                calculations(teamsAndGameScore,teamsList);
-                outPut(teamsAndGameScore,scoresMap,teamsList);
+                calculations(teamsAndGameScore);
+                outPut(teamsAndGameScore,scoresMap);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
@@ -50,15 +50,15 @@ public class Main {
                     String[] arrOfStr = line.split(",");
                     Collections.addAll(teamsAndGameScore, arrOfStr);
                 }
-                calculations(teamsAndGameScore,teamsList);
-                outPut(teamsAndGameScore,scoresMap,teamsList);
+                calculations(teamsAndGameScore);
+                outPut(teamsAndGameScore,scoresMap);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    public static void calculations(List<String> teamsAndGameScore,List<String> teamsList) {
+    public static void calculations(List<String> teamsAndGameScore) {
         System.out.println("-------------------------------------------------");
         int num = teamsAndGameScore.size();
         if (!teamsAndGameScore.isEmpty()) {
@@ -89,7 +89,7 @@ public class Main {
         }
     }
 
-    public static void outPut(List<String> teamsAndGameScore,LinkedHashMap<String, Integer> scoresMap,List<String> teamsList) {
+    public static void outPut(List<String> teamsAndGameScore,LinkedHashMap<String, Integer> scoresMap) {
         for (int i = 0; i < teamsAndGameScore.size(); i++) {
             int a = teamsList.get(i).length();
             String teamName = teamsList.get(i).substring(0, a - 2);
