@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         String result, filename;
         List<String> teamsAndGameScore = new ArrayList<>();
-        List<String> teamslist = new ArrayList<>();
+        List<String> teamsList = new ArrayList<>();
         LinkedHashMap<String, Integer> scoresMap = new LinkedHashMap<>();
         Scanner sc = new Scanner(System.in);
 
@@ -32,8 +32,8 @@ public class Main {
                     String[] arrOfStr = result.split(",");
                     Collections.addAll(teamsAndGameScore, arrOfStr);
                 }
-                calculations(teamsAndGameScore,teamslist);
-                outPut(teamsAndGameScore,scoresMap,teamslist);
+                calculations(teamsAndGameScore,teamsList);
+                outPut(teamsAndGameScore,scoresMap,teamsList);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
@@ -50,8 +50,8 @@ public class Main {
                     String[] arrOfStr = line.split(",");
                     Collections.addAll(teamsAndGameScore, arrOfStr);
                 }
-                calculations(teamsAndGameScore,teamslist);
-                outPut(teamsAndGameScore,scoresMap,teamslist);
+                calculations(teamsAndGameScore,teamsList);
+                outPut(teamsAndGameScore,scoresMap,teamsList);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
